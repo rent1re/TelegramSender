@@ -1,0 +1,27 @@
+﻿@{
+    ViewData["Title"] = "Telegram";
+}
+
+<h1>Отправка в Telegram</h1>
+
+<form method="post" asp-controller="Telegram" asp-action="Send">
+    <div>
+        <label>Текст сообщения</label>
+        <input type="text" name="text" value="Hello from app" />
+    </div>
+    <button type="submit">Отправить</button>
+</form>
+
+@if (ViewBag.Result != null)
+{
+    <hr />
+    @if (ViewBag.Ok == true)
+    {
+        <p style="color:green">Успех</p>
+    }
+    else
+    {
+        <p style="color:red">Ошибка</p>
+    }
+    <pre>@ViewBag.Result</pre>
+}
