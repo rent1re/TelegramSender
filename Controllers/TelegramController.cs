@@ -23,7 +23,9 @@ public class TelegramController : Controller
     {
         if (string.IsNullOrWhiteSpace(text))
         {
-            text = "Hello from TelegramSender";
+            ViewBag.Ok = false;
+            ViewBag.Result = "Please write a message. Empty messages are not allowed.";
+            return View("Index");
         }
 
         try
